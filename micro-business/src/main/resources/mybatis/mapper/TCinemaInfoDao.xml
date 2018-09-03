@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.business.microbusiness.dao.TCinemaInfoDao">
+    <resultMap type="com.business.microbusiness.entity.TCinemaInfoEntity" id="tCinemaInfoMap">
+        <result property="id" column="id"/>
+        <result property="cinemaName" column="cinema_name"/>
+        <result property="cinemaCode" column="cinema_code"/>
+        <result property="ngVersion" column="ng_version"/>
+        <result property="ucVersion" column="uc_version"/>
+        <result property="updateTask" column="update_task"/>
+        <result property="osType" column="os_type"/>
+        <result property="cinemaLevel" column="cinema_level"/>
+        <result property="levelFromCompass" column="level_from_compass"/>
+        <result property="recordStatus" column="record_status"/>
+        <result property="netproxyVersion" column="netproxy_version"/>
+        <result property="companyTitle" column="company_title"/>
+        <result property="investTitle" column="invest_title"/>
+        <result property="provinceTitle" column="province_title"/>
+        <result property="cityTitle" column="city_title"/>
+        <result property="countryTitle" column="country_title"/>
+        <result property="lastyearnum" column="lastyearnum"/>
+        <result property="lastyearperson" column="lastyearperson"/>
+        <result property="lastmonthnum" column="lastmonthnum"/>
+        <result property="zoneTitle" column="zone_title"/>
+        <result property="taijiuCollaboration" column="taijiu_collaboration"/>
+        <result property="opentime" column="opentime"/>
+        <result property="hallnum" column="hallnum"/>
+        <result property="saleSystem" column="sale_system"/>
+        <result property="seatnum" column="seatnum"/>
+        <result property="status" column="status"/>
+        <result property="linkman" column="linkman" />
+        <result property="contacttitle" column="contacttitle"/>
+        <result property="tel" column="tel"/>
+        <result property="address" column="address"/>
+        <result property="applyname" column="applyname"/>
+        <result property="applyid" column="applyid"/>
+        <result property="isagent" column="isagent"/>
+        <result property="agentCode" column="agent_code"/>
+        <result property="agentName" column="agent_name"/>
+        <result property="agentCode2" column="agent_code2"/>
+        <result property="agentName2" column="agent_name2"/>
+        <result property="firm" column="firm"/>
+        <result property="isMachineSubsidy" column="is_machine_subsidy"/>
+        <result property="installationType" column="installation_type"/>
+        <result property="oldSaleSystem" column="old_sale_system"/>
+        <result property="ucReport" column="uc_report"/>
+        <result property="etlVersion" column="etl_version"/>
+        <result property="departmentId" column="department_id"/>
+        <result property="actionMode" column="action_mode"/>
+        <result property="actionTime" column="action_time"/>
+        <result property="engineerName" column="engineer_name"/>
+        <result property="actionStatus" column="action_status"/>
+        <result property="companyId" column="company_id"/>
+        <result property="cpu" column="cpu"/>
+        <result property="serverversion" column="serverversion"/>
+        <result property="raid" column="raid"/>
+        <result property="harddisk" column="harddisk"/>
+        <result property="memory" column="memory"/>
+        <result property="ip" column="ip"/>
+        <result property="mac" column="mac"/>
+        <result property="cinemaType" column="cinema_type"/>
+        <result property="istrain" column="istrain"/>
+        <result property="licenseApplyStatus" column="apply_license_status"/>
+        <result property="cinemaType" column="cinema_type"/>
+        <result property="installId" column="install_id"/>
+        <result property="clientId" column="client_id"/>
+        <result property="reportDate" column="report_date"/>
+        <result property="systemType" column="system_type"/>
+        <result property="isStole" column="is_stole"/>
+    </resultMap>
+    <select id="queryByCinemaCode" parameterType="java.lang.String" resultMap="tCinemaInfoMap">
+        SELECT * from t_cinema_info
+        WHERE  cinema_code = #{cinemaCode}
+        and record_status = 1
+    </select>
+</mapper>

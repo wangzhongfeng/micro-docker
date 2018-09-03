@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: micro-business-impl
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.98.73:3306/ngmc5?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: ngV5123
+
+mybatis:
+    mapper-locations: classpath:mybatis/mapper/*.xml
+    type-aliases-package: com.business.microbusiness.entity
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    lease-expiration-duration-in-seconds: 5
+    lease-renewal-interval-in-seconds: 10
+
+server:
+  port: 8083
+
