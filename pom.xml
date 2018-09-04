@@ -12,6 +12,8 @@
 	<description>Demo project for Spring Boot</description>
 	<modules>
 		<module>euraka-server</module>
+		<module>micro-business</module>
+		<module>micro-consume</module>
 	</modules>
 
 	<properties>
