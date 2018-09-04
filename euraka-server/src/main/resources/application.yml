@@ -12,3 +12,11 @@ eureka:
   server:
     enable-self-preservation: true
     eviction-interval-timer-in-ms: 4000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #暴露所有端点 默认是info和health
+  endpoint:
+    health:
+      show-details: always #默认是never

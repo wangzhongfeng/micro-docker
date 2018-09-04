@@ -16,9 +16,12 @@ public class TCinemaInfoService  implements ITCinemaInfoService{
     @Autowired
     private TCinemaInfoDao tCinemaInfoDao;
 
+    @Value("${server.port}")
+    private int post;
+
     @Override
     @GetMapping("/wzf")
-    public int getCinemaInfoByCinameCode(String cinameCode) {
-        return tCinemaInfoDao.queryByCinemaCode(cinameCode).getId();
+    public String getCinemaInfoByCinameCode(String cinameCode) {
+        return tCinemaInfoDao.queryByCinemaCode(cinameCode).getId()+",in port"+post;
     }
 }

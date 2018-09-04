@@ -1,5 +1,5 @@
 server:
-  port: 8084
+  port: 8086
 
 eureka:
   client:
@@ -11,12 +11,17 @@ eureka:
 
 spring:
   application:
-    name: micro-business-consume
+    name: micro-business-consume-hystrix-dashboard
+
 management:
   endpoints:
     web:
       exposure:
-        include: "*" #±©Â¶ËùÓĞ¶Ëµã Ä¬ÈÏÊÇinfoºÍhealth
+        include: "*" #æš´éœ²æ‰€æœ‰ç«¯ç‚¹ é»˜è®¤æ˜¯infoå’Œhealth
   endpoint:
     health:
-      show-details: always #Ä¬ÈÏÊÇnever
+      show-details: always #é»˜è®¤æ˜¯never
+info:
+    app:
+      version: 1.1
+      name: aut   #/actuator/info è‡ªå®šä¹‰çš„infoç«¯ç‚¹ å¦åˆ™æ˜¯ç©ºçš„

@@ -14,6 +14,9 @@
 		<module>euraka-server</module>
 		<module>micro-business</module>
 		<module>micro-consume</module>
+		<module>micro-consume-hystrix</module>
+		<module>micro-consume-hystrix-dashboard</module>
+		<module>micro-zuul</module>
 	</modules>
 
 	<properties>

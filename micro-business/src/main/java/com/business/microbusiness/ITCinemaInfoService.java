@@ -4,5 +4,5 @@ import com.business.microbusiness.entity.TCinemaInfoEntity;
 
 public interface ITCinemaInfoService {
 
-    public int getCinemaInfoByCinameCode(String cinameCode);
+    public String getCinemaInfoByCinameCode(String cinameCode);
 }
