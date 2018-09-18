@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    image: 'mysql'
+    container_name: mymysql
+    volumes:
+      - data:/var/lib/mysql
+      - ./mysql/config/my.cnf:/etc/my.cnf
+      - ./mysql/init:/docker-entrypoint-initdb.d/
+    ports:
+      - '3307:3306'
+volumes:
+  data:
+    driver: local

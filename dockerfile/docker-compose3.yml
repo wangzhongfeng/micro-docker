@@ -1,0 +1,72 @@
+version: '3.3'
+
+services:
+   db:
+     image: centos/mysql-57-centos7
+     container_name: mysql57
+     volumes:
+       #- db_data:/var/lib/mysql/data
+       - ./mysql/conf:/etc/mysql/conf.d
+       - ./dbdata:/var/lib/mysql
+      # - ./mysql/init:/docker-entrypoint-initdb.d/
+     environment:
+       MYSQL_ROOT_PASSWORD: 123456
+     ports:
+      - '3307:3306'
+   redis:
+     restart: always
+     ports:
+      - '6379'
+     image: redis
+     #container_name: redis1
+     volumes: 
+       - ./redis/data:/data
+     command: redis-server --appendonly "yes" --requirepass "123456" --notify-keyspace-events Eglx
+   rabbitmq: 
+     restart: always
+     image: rabbitmq
+     ports: 
+       - "4369:4369"
+       - "5671:5671"
+       - "5672:5672"
+       - "15671:15671"
+       - "15672:15672"
+
+     container_name: rabbitmq
+     volumes:
+       - ./rabbitmq/data:/var/rabbitmq/lib
+     environment: 
+       RABBITMQ_DEFAULT_USER: admin
+       RABBITMQ_DEFAULT_PASS: 123456
+     #command: rabbitmq-plugins enable rabbitmq_management 
+   etcd:
+     container_name: etcd
+     image: elcolio/etcd
+     ports:
+       - "2379:2379"
+       - "4001:4001"
+       - "2380:2380"
+     environment:
+      - TZ=CST-8
+      - LANG=zh_CN.UTF-8
+     command: 
+       - /usr/local/bin/etcd
+       - -name
+       - etcd
+       - --data-dir
+       - /etcd_data
+       - -advertise-client-urls
+       - http://etcd:2379
+       - -listen-client-urls
+       - http://0.0.0.0:2379
+       - -initial-advertise-peer-urls
+       - http://etcd:2380
+       - -listen-peer-urls
+       - http://0.0.0.0:2380
+       - -initial-cluster
+     volumes:
+      - ./etcd/data:/etcd-data
+      # - "/data/config/etcd/ca-certificates/:/etc/ssl/certs"
+
+#volumes:
+#    db_data:
