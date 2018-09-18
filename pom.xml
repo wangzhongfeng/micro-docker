@@ -6,7 +6,7 @@
 	<groupId>com.docker</groupId>
 	<artifactId>microservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>microservice</name>
 	<description>Demo project for Spring Boot</description>
@@ -16,7 +16,7 @@
 		<module>micro-consume</module>
 		<module>micro-consume-hystrix</module>
 		<module>micro-consume-hystrix-dashboard</module>
-		<module>micro-zuul</module>
+		<module>micro-gateway-zuul</module>
 	</modules>
 
 	<properties>
@@ -24,16 +24,5 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
 
 </project>

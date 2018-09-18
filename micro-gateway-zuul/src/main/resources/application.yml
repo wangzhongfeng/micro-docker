@@ -1,5 +1,5 @@
 server:
-  port: 8085
+  port: 8100
 
 eureka:
   client:
@@ -11,15 +11,10 @@ eureka:
   instance:
     lease-expiration-duration-in-seconds: 5
     lease-renewal-interval-in-seconds: 2
-
 spring:
   application:
-    name: micro-business-consume-hystrix
-ribbon:
-  eager-load:
-    enabled: true
-    clients:
-        micro-business-impl
+    name: micro-gateway-zuul
+
 management:
   endpoints:
     web:
@@ -28,9 +23,13 @@ management:
   endpoint:
     health:
       show-details: always #默认是never
-  server:
-    port: 8185
 info:
     app:
       version: 1.1
       name: aut   #/actuator/info 自定义的info端点 否则是空的
+zuul:
+  ribbon:
+    eager-load:
+        enabled: true
+        clients:
+          micro-business-consume-hystrix

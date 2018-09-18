@@ -1,0 +1,36 @@
+version: '3'
+services:
+    eurala-server: 
+      image: microservice-eureka-server:0.0.1 
+      ports: 
+        - "8761:8761"
+    micro-business-impl: 
+      image: micro-business-impl:0.0.1 
+      links: 
+        - eurala-server:discovery
+      ports: 
+        - "9001:8082"
+    micro-business-consume: 
+      image: micro-business-consume:0.0.1 
+      links: 
+        - eurala-server:discovery
+      ports: 
+        - "9002:8084"
+    micro-business-consume-hystrix: 
+      image: micro-business-consume-hystrix:0.0.1 
+      links: 
+        - eurala-server:discovery
+      ports: 
+        - "9003:8085"
+    micro-business-consume-hystrix-dashboard: 
+      image: micro-business-consume-hystrix-dashboard:0.0.1 
+      links: 
+        - eurala-server:discovery
+      ports: 
+        - "9004:8086"
+    micro-gateway-zuul: 
+      image: micro-gateway-zuul:0.0.1 
+      links: 
+        - eurala-server:discovery
+      ports: 
+        - "9005:8100"
